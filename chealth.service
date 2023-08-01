@@ -1,0 +1,15 @@
+[Unit]
+Description=Docker Container Health Check Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+WorkingDirectory=/path/to/chealth/directory
+ExecStart=/path/to/chealth/directory/chealth.sh
+StandardOutput=journal
+StandardError=journal
+[Install]
+WantedBy=multi-user.target
