@@ -12,7 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag zwsq/chealth:$(date +%s)
+      run: docker build . --file Dockerfile --tag zwsq/chealth:${{ github.run_number }}
+    - name: Push the Docker image
+      run: docker push zwsq/chealth:${{ github.run_number }}
+  
   push:
     runs-on: ubuntu-latest
     steps:
