@@ -1,3 +1,4 @@
+[![Docker Image Build and Push](https://github.com/zwsq/CHealth/actions/workflows/docker-image.yml/badge.svg)](https://github.com/zwsq/CHealth/actions/workflows/docker-image.yml)
 # Docker Container Health Check Script
 
 The Docker Container Health Check Script is a bash script that monitors the health status of Docker containers and automatically restarts them if they are unhealthy. This script runs in the background as a systemd service and logs its activities to journalctl.
