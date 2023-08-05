@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  chealth:
+    image: zwsq/chealth:latest
+    container_name: ContainerHealthcheckAgent
+    restart: on-failure
+    volumes:
+     # Modify the host address of the chealth.conf file.
+     - '/root/CHealth/chealth.conf:/usr/local/bin/chealth.conf'
+     # Since the container needs the host's docker daemon, the following volume is required.
+     - '/var/run/docker.sock:/var/run/docker.sock:rw'
