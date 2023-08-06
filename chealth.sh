@@ -29,15 +29,15 @@ while true; do
     if [ -f "$containers_file" ]; then
         while IFS= read -r container; do
             health_status=$(check_health_status "$container")
-            echo "Container: $container, Health Status: $health_status"
+            echo "$(date +'%Y-%m-%d %H:%M:%S') Container: $container, Health Status: $health_status"
 
             if [ "$health_status" != "healthy" ]; then
                 restart_container "$container"
-                log_error "Container '$container' is unhealthy and was restarted."
+                log_error "$(date +'%Y-%m-%d %H:%M:%S') Container '$container' is unhealthy and was restarted."
             fi
         done < "$containers_file"
     else
-        echo "Error: $containers_file not found. Please create the file and add container names, one per line."
+        echo "$(date +'%Y-%m-%d %H:%M:%S') Error: $containers_file not found. Please create the file and add container names, one per line."
         exit 1
     fi
 
