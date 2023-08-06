@@ -14,7 +14,7 @@ The Docker Container Health Check Script is a bash script that monitors the heal
 1. You need to create a chealth.conf file and put the desired container names in each line of the file.
 2. Now you can use following docker run command to start the healthchecker container. Remember to replace the /etc/chealth.conf with your chealth.conf file address on your machine in docker run command.
 ```bash
-docker run -d --name=CHealth -v /etc/chealth.conf:/usr/local/bin/chealth.conf -v /var/run/docker.sock:/var/run/docker.sock:ro zwsq/chealth:10
+docker run -d --name=CHealth -v /etc/chealth.conf:/usr/local/bin/chealth.conf -v /var/run/docker.sock:/var/run/docker.sock:ro zwsq/chealth:14
 ```
 #### Note: Since the container need to know the status of the host containers, acess to the docker.sock file of the host is required.
 ### II) Using bash and systemd
